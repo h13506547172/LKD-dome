@@ -95,28 +95,19 @@ export default {
     // 获取验证码的图片
     async getCodeImg() {
       this.ruleForm.clientToken = Math.floor(Math.random() * 3000)
-      const res = await getCodeImgAPI(this.ruleForm.clientToken)
+      const url = await getCodeImgAPI(this.ruleForm.clientToken)
       // console.log(res)
-      this.codeImg = res.config.url
+      this.codeImg = url
     },
     // 登录按钮
     async loginFn() {
       // 验证表单
       this.$refs.ruleForm.validate(async (boolean) => {
         if (boolean) {
-          try {
-            const res = await loginAPI(this.ruleForm)
-            if (res.data.success && res.data.token) {
-              // 存储token并跳转页面
-              this.$store.dispatch('asyncGetToken',res.data.token)
-              this.$router.push('/')
-            } else {
-              const meg = res.data.msg
-              this.$message.error(meg)
-            }
-          } catch (error) {
-            this.$message.error('登录超时，请稍后再试')
-          }
+          const data = await loginAPI(this.ruleForm)
+          // 存储token并跳转页面
+          await this.$store.dispatch('asyncGetToken', data)
+          await this.$router.push('/')
         }
       })
     },

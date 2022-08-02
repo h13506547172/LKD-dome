@@ -7,10 +7,11 @@
     position: relative;
   }
 
-  .sidebar-container {
+   .sidebar-container {
+    margin-top:60px;
     transition: width 0.28s;
-    width: $sideBarWidth !important;
-    background-color: $menuBg;
+    width: 167px !important;
+    background-color: #fff!important;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -93,7 +94,7 @@
 
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: 167px !important;
     }
 
     .main-container {
@@ -123,13 +124,13 @@
       &>.el-submenu__title {
         padding: 0 !important;
 
-        .svg-icon {
-          margin-left: 20px;
-        }
+        // .svg-icon {
+        //   margin-left: 20px;
+        // }
 
-        .sub-el-icon {
-          margin-left: 19px;
-        }
+        // .sub-el-icon {
+        //   margin-left: 19px;
+        // }
 
         .el-submenu__icon-arrow {
           display: none;
