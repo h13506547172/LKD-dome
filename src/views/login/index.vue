@@ -95,18 +95,18 @@ export default {
     // 获取验证码的图片
     async getCodeImg() {
       this.ruleForm.clientToken = Math.floor(Math.random() * 3000)
-      const url = await getCodeImgAPI(this.ruleForm.clientToken)
+      const res = await getCodeImgAPI(this.ruleForm.clientToken)
       // console.log(res)
-      this.codeImg = url
+      this.codeImg = res.config.url
     },
     // 登录按钮
     async loginFn() {
       // 验证表单
       this.$refs.ruleForm.validate(async (boolean) => {
         if (boolean) {
-          const data = await loginAPI(this.ruleForm)
+          const res = await loginAPI(this.ruleForm)
           // 存储token并跳转页面
-          await this.$store.dispatch('asyncGetToken', data)
+          await this.$store.dispatch('asyncGetToken', res.data)
           await this.$router.push('/')
         }
       })

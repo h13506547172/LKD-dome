@@ -2,10 +2,18 @@
 // 登录权限的代码区域
 import router from '@/router/index'
 import store from '@/store/index'
+import { getUserInfoAPI } from '@/api/user'
 const whiteList = ['/login', '/404']
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // 如果已登录
   if (store.state.user.token) {
+    // 如果没有获取用户信息，就存储
+    if (!store.state.userInfo.userId) {
+      const res = await getUserInfoAPI(store.state.user.userId)
+      console.log(res)
+      // store.dispatch('asyncGetUserInfo',)
+    }
+
     // 去登录页面跳首页
     if (to.path === '/login') return next('/')
     // 不是就正常跳转

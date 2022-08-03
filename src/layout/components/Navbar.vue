@@ -5,16 +5,16 @@
     <!-- <breadcrumb class="breadcrumb-container" /> -->
     <img src="../../assets/image/logo.3673fab5.png" alt="" class="logo" />
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img src="../../assets/image/下载 (1).png" class="user-avatar" />
-          <div class="text">欢迎您，admin</div>
-          <div class="exit">
-            <span>退出</span>
-            <i class="el-icon-caret-bottom" />
-          </div>
+      <!-- <el-dropdown class="avatar-container" trigger="click">
+      </el-dropdown> -->
+      <div class="avatar-wrapper">
+        <img src="../../assets/image/下载 (1).png" class="user-avatar" />
+        <div class="text">欢迎您，admin</div>
+        <div class="exit">
+          <span>退出</span>
+          <i class="el-icon-caret-bottom" />
         </div>
-      </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -114,10 +114,9 @@ export default {
       display: flex;
       align-items: center;
     }
-    .avatar-container {
-      margin-right: 30px;
 
       .avatar-wrapper {
+        margin-right: 20px;
         position: relative;
         display: flex;
         align-items: center;
@@ -139,7 +138,7 @@ export default {
           font-size: 12px;
         }
       }
-    }
+
   }
 }
 </style>

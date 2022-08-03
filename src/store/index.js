@@ -3,33 +3,48 @@ import Vuex from 'vuex'
 import getters from './getters'
 // import app from './modules/app'
 import settings from './modules/settings'
-import user from './modules/user'
 import createVuexPersisted from 'vuex-persistedstate'
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    userInfo: {},
   },
   mutations: {
-    getToken(state,data) {
+    // 获取用户token
+    getToken(state, data) {
       state.user = data
-    }
+    },
+    // 获取用户详细信息
+    getUserInfo(state, data) {
+      state.user = data
+    },
   },
   actions: {
     asyncGetToken(context, data) {
       context.commit('getToken', data)
-    }
+    },
+    async asyncGetUserInfo(context, data) {
+      context.commit('getUserInfo',data)
+    },
   },
   modules: {
     app,
     settings,
-    user,
   },
   getters,
   plugins: [
     // 默认是所有vuex模块中的state的值存入本地
-    createVuexPersisted(),
+    createVuexPersisted({
+      reducer(state) {
+        return {
+          // 只存储user对象中的token
+          user: state.user,
+        }
+      },
+    }),
   ],
 })
 
