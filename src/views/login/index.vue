@@ -61,6 +61,7 @@
 
 <script>
 import { getCodeImgAPI, loginAPI } from '@/api/user'
+import { setTokenTime } from '@/utils/auth'
 export default {
   data() {
     return {
@@ -107,6 +108,8 @@ export default {
           const res = await loginAPI(this.ruleForm)
           // 存储token并跳转页面
           await this.$store.dispatch('asyncGetToken', res.data)
+          // 存储时间戳
+          setTokenTime(Date.now())
           await this.$router.push('/')
         }
       })

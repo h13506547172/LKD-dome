@@ -8,10 +8,10 @@
       <!-- <el-dropdown class="avatar-container" trigger="click">
       </el-dropdown> -->
       <div class="avatar-wrapper">
-        <img src="../../assets/image/下载 (1).png" class="user-avatar" />
-        <div class="text">欢迎您，admin</div>
+        <img src="https://t11.baidu.com/it/u=265704898,674087460&fm=585" class="user-avatar" v-imgError='img404'/>
+        <div class="text">欢迎您，{{$store.state.userInfo.loginName}}</div>
         <div class="exit">
-          <span>退出</span>
+          <span @click="exitFn">退出</span>
           <i class="el-icon-caret-bottom" />
         </div>
       </div>
@@ -23,8 +23,13 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-
+import img404 from "@/assets/image/68775e15bc12b22a0c38d8d556863767.jpeg";
 export default {
+  data () {
+    return {
+      img404
+    }
+  },
   components: {
     Breadcrumb,
     Hamburger,
@@ -40,6 +45,10 @@ export default {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
+    exitFn(){
+      this.$store.dispatch('logout')
+      this.$router.push('/login')
+    }
   },
 }
 </script>

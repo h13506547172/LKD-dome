@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     },
     // 获取用户详细信息
     getUserInfo(state, data) {
-      state.user = data
+      state.userInfo = data
     },
   },
   actions: {
@@ -27,7 +27,12 @@ const store = new Vuex.Store({
       context.commit('getToken', data)
     },
     async asyncGetUserInfo(context, data) {
-      context.commit('getUserInfo',data)
+      context.commit('getUserInfo', data)
+    },
+    // 退出
+    logout(context) {
+      context.commit('getToken', {})
+      context.commit('getUserInfo', {})
     },
   },
   modules: {

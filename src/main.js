@@ -14,6 +14,8 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+// 自定义指令
+import { imgError } from "@/directives/index";
 
 /**
  * If you don't want to use mock-server
@@ -27,6 +29,8 @@ if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
 }
+// 图片404
+Vue.directive('imgError', imgError)
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })

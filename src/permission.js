@@ -10,8 +10,8 @@ router.beforeEach(async (to, from, next) => {
     // 如果没有获取用户信息，就存储
     if (!store.state.userInfo.userId) {
       const res = await getUserInfoAPI(store.state.user.userId)
-      console.log(res)
-      // store.dispatch('asyncGetUserInfo',)
+      // console.log(res)
+      store.dispatch('asyncGetUserInfo',res.data)
     }
 
     // 去登录页面跳首页
