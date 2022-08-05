@@ -1,5 +1,7 @@
 <template>
-  <div>工单</div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

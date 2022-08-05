@@ -20,7 +20,7 @@ export default {
 <style scoped>
 .app-main {
   /*50 = navbar  */
-  background-color: #fff;
+  background-color: #f8fafd;
   margin-top: 80px;
   min-height: 400px;
   width: 1330px;
