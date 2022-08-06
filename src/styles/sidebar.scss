@@ -7,6 +7,8 @@
     transition: margin-left 0.28s;
     margin-left: 187px;
     position: relative;
+    width: calc(100% - 187px);
+    height: 100%;
   }
 
   .sidebar-container {

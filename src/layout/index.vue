@@ -6,7 +6,9 @@
       <div :class="{ 'fixed-header': fixedHeader }">
         <navbar />
       </div>
-      <app-main />
+      <el-scrollbar style="height: 100%" wrap-style="overflow-x:hidden;">
+        <app-main />
+      </el-scrollbar>
     </div>
   </div>
 </template>

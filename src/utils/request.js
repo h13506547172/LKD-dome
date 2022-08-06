@@ -4,10 +4,12 @@ import store from '@/store/index'
 import { getTokenTime } from './auth'
 // 引入router实例
 import router from '../router/index'
+// 单独引入element的消息提示
+import { Message } from 'element-ui'
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 5000,
+  // timeout: 5000,
 })
 // token是否过期
 const timeOut = () => {
@@ -64,8 +66,10 @@ service.interceptors.response.use(
       // 跳转到登录页
       await store.dispatch('logout')
       router.push('/login')
+      Message.error('登录过期，请重新登录')
     } else {
-      console.log(error.message)
+      // console.log(error.message)
+      Message.error(error.message)
     }
 
     return Promise.reject(error)

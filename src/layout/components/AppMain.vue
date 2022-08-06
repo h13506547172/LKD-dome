@@ -23,8 +23,8 @@ export default {
   background-color: #f8fafd;
   margin-top: 80px;
   min-height: 400px;
-  width: 1330px;
-  position: fixed;
+  width: 100%;
+  /* position: fixed; */
   overflow: hidden;
 }
 /* .fixed-header+.app-main {

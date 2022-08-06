@@ -6,19 +6,16 @@
 </template>
 
 <script>
-import searchBar from "./components/searchBar.vue";
-import infoBar from "./components/infoBar.vue";
-
-
+import searchBar from './components/searchBar.vue'
+import infoBar from './components/infoBar.vue'
 
 export default {
   components: {
     searchBar,
-    infoBar
+    infoBar,
   },
   data() {
-    return {
-    }
+    return {}
   },
 
   created() {},
@@ -29,6 +26,7 @@ export default {
 
 <style lang="less" scoped>
 .operat-page {
+  overflow: hidden;
   .search {
     display: flex;
     height: 64px;
