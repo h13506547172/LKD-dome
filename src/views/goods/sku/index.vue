@@ -1,5 +1,5 @@
 <template>
-  <div>人员列表</div>
+  <div>商品管理</div>
 </template>
 
 <script>

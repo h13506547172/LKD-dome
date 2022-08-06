@@ -8,7 +8,7 @@
       <!-- <el-dropdown class="avatar-container" trigger="click">
       </el-dropdown> -->
       <div class="avatar-wrapper">
-        <img src="https://t11.baidu.com/it/u=265704898,674087460&fm=585" class="user-avatar" v-imgError='img404'/>
+        <img :src="$store.state.userInfo.image" class="user-avatar" v-imgError='img404'/>
         <div class="text">欢迎您，{{$store.state.userInfo.loginName}}</div>
         <div class="exit">
           <span @click="exitFn">退出</span>

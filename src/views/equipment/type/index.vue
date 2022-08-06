@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div>设备类型管理</div>
 </template>
 
 <script>

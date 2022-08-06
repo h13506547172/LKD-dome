@@ -12,6 +12,7 @@ import personnel from './modules/personnel'
 import goods from './modules/goods'
 import strategy from './modules/strategy'
 import bill from './modules/bill'
+import goodsOrder from "./modules/goodsOrder";
 
 
 
@@ -82,7 +83,9 @@ export const asyncRoutes = [
   personnel,
   goods,
   strategy,
-  bill
+  goodsOrder,
+  bill,
+  
 ]
 
 const createRouter = () =>

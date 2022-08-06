@@ -1,5 +1,5 @@
 <template>
-  <div>人员列表</div>
+  <div>设备状态</div>
 </template>
 
 <script>
