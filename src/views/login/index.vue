@@ -106,11 +106,16 @@ export default {
       this.$refs.ruleForm.validate(async (boolean) => {
         if (boolean) {
           const res = await loginAPI(this.ruleForm)
-          // 存储token并跳转页面
-          await this.$store.dispatch('asyncGetToken', res.data)
-          // 存储时间戳
-          setTokenTime(Date.now())
-          await this.$router.push('/')
+          if (res.data.success) {
+            // 存储token并跳转页面
+            await this.$store.dispatch('asyncGetToken', res.data)
+            // 存储时间戳
+            setTokenTime(Date.now())
+            await this.$router.push('/')
+            this.$message.success(res.data.msg)
+          }else {
+            this.$message.error(res.data.msg)
+          }
         }
       })
     },
